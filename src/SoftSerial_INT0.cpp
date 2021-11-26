@@ -321,7 +321,11 @@ void SoftSerial::begin(long speed)
 	// Set up RX interrupts, but only if we have a valid RX baud rate
 	if (_rx_delay_stopbit)
 	{
-		GIMSK |= (1 << INT0);   // Enable INT0
+		#ifdef ATTINY
+		GIMSK |= (1 << INT0);   // Enable INT0 Attiny85
+		#else
+		EIMSK |= (1 << INT0);   // Enable INT0 Atmega328p
+		#endif
 		MCUCR |= (1 << ISC00);	// Any change of state (fall or rise)
 		MCUCR &= ~(1 << ISC01);	// Any change of state (fall or rise)
 		sei();
@@ -334,7 +338,11 @@ void SoftSerial::begin(long speed)
 
 void SoftSerial::end()
 {
-	GIMSK &= ~(1 << INT0);     // Disable INT0
+	#ifdef ATTINY
+	GIMSK &= ~(1 << INT0);     // Disable INT0 Attiny85
+	#else
+	EIMSK &= ~(1 << INT0);     // Disable INT0 Atmega328p
+	#endif
 	cli();
 }
 
