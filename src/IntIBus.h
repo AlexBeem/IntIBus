@@ -1,12 +1,12 @@
 #include <inttypes.h>
-#include <NeoICSerial.h>
-class NeoICSerial;
+#include "SoftSerial_INT0.h"
+class SoftSerial_INT0;
 class Stream;
 
 class SIBus
 {
 public:
-  void begin(NeoICSerial& serial);
+  void begin(SoftSerial_INT0& serial);
   void begin(Stream& stream);
   void loop(void);
   uint16_t readChannel(uint8_t channelNr);
