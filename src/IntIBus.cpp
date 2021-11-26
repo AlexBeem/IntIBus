@@ -1,8 +1,8 @@
 #include <Arduino.h>
-#include "NeoIBus.h"
-#include "NeoICSerial.h"
+#include "IntIBus.h"
+#include "SoftSerial_INT0.h"
 SIBus IBus;
-void SIBus::begin(NeoICSerial& serial)
+void SIBus::begin(SoftSerial_INT0& serial)
 {
   begin((Stream&)serial);
 }
