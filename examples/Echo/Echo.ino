@@ -1,4 +1,4 @@
-#include <SoftSerial_INT0.h>
+#include "SoftSerial_INT0.h"
 
 #define P_RX 2                        // Reception PIN (SoftSerial)
 #define P_TX 1                        // Transmition PIN (SoftSerial)
