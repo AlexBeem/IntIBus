@@ -1,5 +1,5 @@
 #include "IntIBus.h"             // SoftIBus library
-SoftSerial_INT0 IBuspin(2, 3);   // "serial" port on which we will be running the IBus connection. 
+SoftSerial IBuspin(2, 3);   // "serial" port on which we will be running the IBus connection. 
                                  // Since to read values we only need the Rx, just connect pin D14 and leave D15 open
 
 // *** ВАЖНО!!! *** ЧИТАТЬ ВНИМАТЕЛЬНО!!! ***
